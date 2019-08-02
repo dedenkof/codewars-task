@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_1</title>
+</head>
+<body>
+<script>
+    /*
+    *Given a year, return the century it is in.
+    */
+    //------------------------------------------
+    // My solve
+    function getCentury(year) {
+
+        if (year % 100 == 0){
+
+            return year / 100;
+
+        }else{
+
+            return Math.floor(year / 100) +1;
+
+        }
+
+    }
+
+
+    console.log(getCentury(101));
+
+    //------------------------------------------
+    // 1) Best practice
+
+    const century1 = year => Math.ceil(year/100);
+
+
+
+    console.log(century1(101));
+
+    //------------------------------------------
+    // 2) Best practice
+
+    function century2(year) {
+        return (year + 99) / 100 | 0;
+    }
+
+    console.log(century2(101));
+
+</script>
+</body>
+</html>
