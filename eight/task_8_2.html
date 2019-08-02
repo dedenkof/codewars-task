@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_2</title>
+</head>
+<body>
+<script>
+    /*
+    *Given a year, return the century it is in.
+    */
+    //------------------------------------------
+    // My solve
+    var countSheep = function (num){
+
+        let murmur = '';
+
+        for(let i = 1; i <= num; i++){
+
+            murmur += i + ' sheep...';
+
+        }
+
+        return murmur;
+
+    };
+
+
+    console.log(countSheep(20));
+
+    // My solve ES6
+
+    const countSheep2 = num => {
+
+        murmur = '';
+
+        for(let i = 1; i <= num; i++){
+
+            murmur += `${i} sheep...`;
+
+        }
+
+        return murmur;
+
+    };
+
+    console.log(countSheep2(20));
+
+    //------------------------------------------
+    // 1) Best practice
+
+    var countSheep3 = function (num){
+        let str = "";
+        for(let i = 1; i <= num; i++) { str+= `${i} sheep...`; }
+        return str;
+    };
+
+    console.log(countSheep2(20));
+
+</script>
+</body>
+</html>
