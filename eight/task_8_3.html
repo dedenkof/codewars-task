@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_3</title>
+</head>
+<body>
+<script>
+    /*
+    *Complete the solution so that it reverses all of the words within the string passed in.
+    Example:
+    reverseWords("The greatest victory is that which requires no battle")   // should return "battle no requires which that is victory greatest The"
+    */
+    //------------------------------------------
+    // My solve
+
+    // ####################### Change order words and letters reverse
+    function reverseWords(str){
+
+        return str.split(" ").map(
+            function(word){
+                return word.split("").reverse().join("")}
+        ).join(" ");
+
+    }
+
+    console.log(reverseWords('Hello world!'));
+
+    // ES6
+    const reverseWords = (str) => str
+        .split(' ')
+        .map( word => word.split('').reverse().join('') )
+        .join(' ');
+
+    console.log(reverseWords('Hello world!'));
+    // My solve ES6
+
+    // ####################### / Change order words and letters reverse
+
+
+    function reverseWords(str){
+        return str.split(" ").reverse().join(" ");
+    }
+
+    console.log(reverseWords('Hello world!'));
+
+    // ES6
+    const reverseWords = (str) => str
+        .split(' ')
+        .reverse()
+        .join(' ');
+
+    console.log(reverseWords('Hello world!'));
+
+
+    //------------------------------------------
+    // 1) Best practice
+
+    function reverseWords(str){
+        return str.split(' ').reverse().join(' ');
+    }
+
+    console.log(reverseWords('Hello world!'));
+
+</script>
+</body>
+</html>
