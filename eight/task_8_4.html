@@ -11,34 +11,36 @@
 <body>
 <script>
     /*
-    *Your task is to find the nearest square number, nearest_sq(n), of a positive integer n.
+    *Create a function (or write a script in Shell) that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
     */
     //------------------------------------------
     // My solve
 
-    function nearestSq(n){
-        // your code
+    function even_or_odd(number) {
+        if(number % 2 == 0){
+            return "Even";
+        }else{
+            return "Odd";
+        }
     }
 
-    console.log(nearestSq());
+    console.log(even_or_odd(2));
 
     // My solve ES6
 
-    function nearestSq(n){
-        // your code
-    }
+    const even_or_odd = number => (number % 2) ? 'Odd' : 'Even';
 
-    console.log(nearestSq());
+    console.log(even_or_odd());
 
 
     //------------------------------------------
     // 1) Best practice
 
-    function nearestSq(n){
-        // your code
+    function even_or_odd(number) {
+        return number % 2 ? "Odd" : "Even"
     }
 
-    console.log(nearestSq());
+    console.log(even_or_odd(2));
 
 </script>
 </body>
