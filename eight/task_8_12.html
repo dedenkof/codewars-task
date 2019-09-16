@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_12</title>
+</head>
+<body>
+<script>
+    /*
+        Given an array of integers your solution should find the smallest integer.
+            For example:
+            Given [34, 15, 88, 2] your solution will return 2
+            Given [34, -345, -1, 100] your solution will return -345
+        You can assume, for the purpose of this kata, that the supplied array will not be empty.
+     */
+    //------------------------------------------
+    // My solve
+
+    class SmallestIntegerFinder {
+        findSmallestInt(args) {
+            let smallInt = Number.POSITIVE_INFINITY;
+            for(let i = 0; i < args.length; i++){
+                if(args[i] < smallInt){
+                    smallInt = args[i];
+                    }
+                }
+            }
+        }
+
+    const smInt = new SmallestIntegerFinder();
+    console.log(makeNegative(smInt.findSmallestInt([0, 5, -300])));
+
+
+
+
+    //------------------------------------------
+    // 1) Other descision best practice
+
+    class SmallestIntegerFinder {
+        findSmallestInt(args) {
+            return Math.min(...args)
+        }
+    }
+
+    const smInt2 = new SmallestIntegerFinder();
+    console.log(makeNegative(smInt2.findSmallestInt([0, 5, -300])));
+
+</script>
+</body>
+</html>
