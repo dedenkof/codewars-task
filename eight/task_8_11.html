@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_11</title>
+</head>
+<body>
+<script>
+    /*
+        In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+        Example:
+        makeNegative(1); // return -1
+        makeNegative(-5); // return -5
+        makeNegative(0); // return 0
+        makeNegative(0.12); // return -0.12
+        Notes:
+        The number can be negative already, in which case no change is required.
+        Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
+     */
+    //------------------------------------------
+    // My solve
+
+    function makeNegative(num) {
+
+        return num == 0 ? 0 : num > 0 ? -num : num;
+
+    }
+
+    console.log(makeNegative(20));
+
+
+
+    // My solve 3 ES6
+
+    const makeNegative = num => num == 0 ? 0 : num > 0 ? -num : num;
+
+    console.log(makeNegative(20));
+
+
+    //------------------------------------------
+    // 1) Other descision best practice
+
+
+    function makeNegative(num) {
+        return -Math.abs(num);
+    }
+
+    console.log(makeNegative(20));
+
+    // 2) Other descision best practice
+    function makeNegative(num) {
+        return num < 0 ? num : -num;
+    }
+
+    console.log(makeNegative(20));
+
+</script>
+</body>
+</html>
