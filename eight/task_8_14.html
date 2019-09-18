@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_14</title>
+</head>
+<body>
+<script>
+    /*
+        Consider an array of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+            For example,
+
+            [true,  true,  true,  false,
+              true,  true,  true,  true ,
+              true,  false, true,  false,
+              true,  false, false, true ,
+              true,  true,  true,  true ,
+              false, false, true,  true]
+            The correct answer would be 17.
+
+            Hint: Don't forget to check for bad values like null/undefined
+     */
+    //------------------------------------------
+    // My solve
+
+    var array1 = [true,  true,  true,  false,
+        true,  true,  true,  true ,
+        true,  false, true,  false,
+        true,  false, false, true ,
+        true,  true,  true,  true ,
+        false, false, true,  true ];
+
+
+    function countSheeps(arrayOfSheep) {
+
+        let res = 0;
+
+        for(let i = 0; i < arrayOfSheep.length; i++){
+
+            if(arrayOfSheep[i] === true){
+
+                res++;
+
+            }
+
+        }
+
+        return res;
+    }
+
+
+    console.log(countSheeps((array1));
+
+
+
+    //------------------------------------------
+    // 1) Other descision best practice
+
+    function countSheeps(arrayOfSheeps) {
+        return arrayOfSheeps.filter(Boolean).length;
+    }
+    console.log(countSheeps((array1));
+
+    // 2) Other descision best practice
+
+    function bouncer(arr) {
+        return arr.filter(function(value) { return !!value; });
+    }
+
+    const countSheeps = arrayOfSheeps => arrayOfSheeps.filter(s => s).length;
+
+    function countSheeps(arrayOfSheep) {
+        var array = arrayOfSheep.reduce((a,b)=>a + (b===true?1:0),0)
+        return array;
+    }
+
+    console.log(countSheeps((array1));
+
+</script>
+</body>
+</html>
