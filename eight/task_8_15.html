@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_15</title>
+</head>
+<body>
+<script>
+    /*
+        Grasshopper - Summation
+        Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+        For example:
+
+        summation(2) -> 3
+        1 + 2
+
+        summation(8) -> 36
+        1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
+     */
+    //------------------------------------------
+    // My solve
+
+    var summation = function (num) {
+
+        let sum = 0;
+
+        for (let i = 0; i < num; i++){
+
+            sum += num - i;
+
+        }
+
+        return sum;
+
+    }
+
+
+    console.log(summation(8)); // 36 =  1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
+
+
+
+    //------------------------------------------
+    // 1) Other descision best practice
+
+    var summation = function (num) {
+        let result = 0;
+        for (var i = 1; i <= num; i++) {
+            result += i;
+        }
+
+        return result;
+    }
+
+
+    console.log(summation(8)); // 36
+
+    // 2) Other descision best practice
+
+    const summation = n => n * (n + 1) / 2;
+
+    console.log(summation(8));
+
+
+    // 3)
+
+    function summation(num) {
+        return num * (num + 1) / 2
+    }
+
+    console.log(summation(8));
+
+    // 4)
+
+    var summation = function (num) {
+        var sum = 0;
+        for(var i=0; i<=num;i++){
+            sum+=i
+        }
+        return sum;
+    }
+
+    console.log(summation(8));
+
+    // 5)
+
+    var summation = function (num) {
+        for (var i=0, s=0; i <= num; i++){
+            s+=i
+        }
+        return s;
+    }
+
+    console.log(summation(8));
+
+</script>
+</body>
+</html>
