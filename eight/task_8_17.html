@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_8_17</title>
+</head>
+<body>
+<script>
+    /*
+        Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+     */
+    //------------------------------------------
+    // My solve
+
+
+    function boolToWord( bool ){
+        if(Boolean(bool)){
+            return 'Yes';
+        }else{
+            return 'No';
+        }
+    }
+
+    console.log(boolToWord(true)); // 'Yes'
+
+    // My Solve
+
+    function boolToWord( bool ){
+        return Boolean(bool) ? 'Yes' : 'No';
+    }
+    console.log(boolToWord(true)); // 'Yes'
+
+    // My solve ES6
+
+    const boolToWord = bool => !!bool ? 'Yes' : 'No';
+
+    console.log(boolToWord(true)); // 'Yes'
+
+    //------------------------------------------
+    // 1) Other descision best practice
+
+    function boolToWord( bool ){
+        return bool ? 'Yes':'No';
+    }
+
+    console.log(boolToWord(true)); // 'Yes'
+
+
+    // 2) Other descision best practice
+
+    function boolToWord( bool ){
+        return ['No','Yes'][+bool];
+    }
+
+    console.log(boolToWord(true)); // 'Yes'
+
+
+
+</script>
+</body>
+</html>
