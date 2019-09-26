@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_7_3</title>
+</head>
+<body>
+
+
+<script>
+    /*
+    *You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+#Examples:
+
+Kata.getMiddle("test") should return "es"
+
+Kata.getMiddle("testing") should return "t"
+
+Kata.getMiddle("middle") should return "dd"
+
+Kata.getMiddle("A") should return "A"
+#Input
+
+A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+
+#Output
+
+The middle character(s) of the word represented as a string.
+    */
+    //------------------------------------------
+    // My solve
+
+
+    function highAndLow(numbers){
+        let max =  Math.max.apply(null, numbers.split(" "));
+        let min =  Math.min.apply(null, numbers.split(" "));
+
+        return max +' ' + min;
+    }
+
+
+    highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");  // "542 -214"
+
+    // My solve es6
+
+    const highAndLow = numbers => {
+        let max =  Math.max.apply(null, numbers.split(" "));
+        let min =  Math.min.apply(null, numbers.split(" "));
+        return `${max} ${min}`;
+    }
+
+    highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");  // "542 -214"
+    //------------------------------------------
+    // 1) Best practice
+
+    function highAndLow(numbers){
+        numbers = numbers.split(' ').map(Number);
+        return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
+    }
+
+    highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");  // "542 -214"
+
+    //------------------------------------------
+    // 2) Best practice 2
+
+    function highAndLow(numbers){
+        numbers = numbers.split(' ');
+        return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+    }
+
+    highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");  // "542 -214"
+
+    // 3) Best practise 3
+
+    function highAndLow(numbers){
+        var arr = numbers.split(' ').sort(function(a, b) { return a - b });
+        return arr[arr.length -1] + ' ' + arr[0];
+    }
+
+    // 4)
+
+    function highAndLow(numbers){
+        var arr = numbers.split(" ").map( (x) => parseInt(x) );
+        var max = arr.reduce((p, c) => p > c ? p : c );
+        var min = arr.reduce((p, c) => p < c ? p : c );
+        return max+" "+min;
+    }
+
+    // 5)
+
+    function highAndLow(numbers){
+        const ar = numbers.split(' ');
+        return `${Math.max(...ar)} ${Math.min(...ar)}`
+    }
+
+</script>
+</body>
+</html>
