@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_7_4</title>
+</head>
+<body>
+
+
+<script>
+    /*
+    *Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+    */
+    //------------------------------------------
+    // My solve
+
+
+    function findShort( s ) {
+        let str = s.split( " " ).sort( ( a, b ) => a.length - b.length );
+        return str[0].length;
+    }
+
+    findShort("turns out random test cases are easier than writing out basic ones"); // 3
+
+    //------------------------------------------
+    // 1) Best practice
+
+    function findShort(s){
+        return Math.min.apply(null, s.split(' ').map(w => w.length));
+    }
+
+    findShort("turns out random test cases are easier than writing out basic ones"); // 3
+
+    //------------------------------------------
+    // 2) Best practice 2
+
+    function findShort(s){
+        return Math.min(...s.split(" ").map (s => s.length));
+    }
+
+    findShort("turns out random test cases are easier than writing out basic ones"); // 3
+
+    // 3) Best practise 3
+
+    function findShort(s){
+        var arr = s.split(' ');
+        var smallest = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+            if(arr[i].length < smallest.length){
+                smallest = arr[i];
+            }
+        }
+        return smallest.length;
+    }
+
+    findShort("turns out random test cases are easier than writing out basic ones"); // 3
+
+    // 4)
+
+    const findShort = (s) => s
+      .split(' ')
+      .sort((a, b) => b.length - a.length)
+      .pop()
+      .length;
+
+    findShort("turns out random test cases are easier than writing out basic ones"); // 3
+
+    // 5)
+
+    function findShort(s) {
+        return s.split(' ').reduce((min, word) => Math.min(min, word.length), Infinity);
+    }
+
+    findShort("turns out random test cases are easier than writing out basic ones"); // 3
+
+</script>
+</body>
+</html>
