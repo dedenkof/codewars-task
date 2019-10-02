@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_7_4</title>
+</head>
+<body>
+
+
+<script>
+    /*
+    Your task is to make a function that can take any non-negative integer as a argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+    Examples:
+    Input: 21445 Output: 54421
+    Input: 145263 Output: 654321
+    Input: 1254859723 Output: 9875543221
+    */
+    //------------------------------------------
+
+    // My solve
+
+
+    const descendingOrder = (n) => +n
+      .toString()
+      .split('')
+      .sort(( a, b ) => b - a)
+      .join('');
+
+    console.log(descendingOrder(123456789));   //987654321
+
+
+    //------------------------------------------
+    // 1) Best practice
+
+    const descendingOrder = n => +String(n).split('').sort((a,b)=>a-b).reverse().join('');
+    console.log(descendingOrder(123456789));   //987654321
+
+
+    // 2)
+
+    function descendingOrder(n){
+        //...
+        return +String(n).split('').map(Number).sort().reverse().join('');
+    }
+
+    console.log(descendingOrder(123456789));   //987654321
+
+    // 3)
+
+    function descendingOrder(n){
+        let array = [];
+        for(let i = 0; i < String(n).length; i++)array.push(String(n)[i])
+        return Number(array.sort((a,b) => b -a ).join(''))
+    }
+
+    console.log(descendingOrder(123456789));   //987654321
+
+    function descendingOrder(n){
+        let digits = [];
+        let reminder;
+        while(n > 9){
+            digits.push(n - Math.floor(n / 10) * 10);
+            n = Math.floor(n / 10);
+        }
+        digits.push(n);
+        return parseInt(digits.sort().reverse().join(''));
+    }
+
+    console.log(descendingOrder(123456789));   //987654321
+
+</script>
+</body>
+</html>
