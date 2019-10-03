@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_7_4</title>
+</head>
+<body>
+
+
+<script>
+    /*
+    YCheck to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+    Examples input/output:
+
+    XO("ooxx") => true
+    XO("xooxx") => false
+    XO("ooxXm") => true
+    XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+    XO("zzoo") => false
+    */
+    //------------------------------------------
+
+    // My solve
+
+
+    function XO(str) {
+        let res = str.toLowerCase().split('');
+        let x = 0;
+        let o = 0;
+
+        res.forEach(function(item) {
+            if(item === 'o'){
+                o++;
+            }else if(item === 'x'){
+                x++;
+            }
+
+        });
+
+        return o === x || (o === undefined && x === undefined) ? true : false;
+    }
+
+
+    console.log(XO("xxOo"); // true
+    console.log(XO("xxxm"); // false
+
+    //------------------------------------------
+    // 1) Best practice
+
+    function XO(str) {
+        let x = str.match(/x/gi);
+        let o = str.match(/o/gi);
+        return (x && x.length) === (o && o.length);
+    }
+
+
+    // 2)
+
+    const XO = str => {
+        str = str.toLowerCase().split('');
+        return str.filter(x => x === 'x').length === str.filter(x => x === 'o').length;
+    }
+
+    // 3)
+
+    function XO(str) {
+        return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
+    }
+
+    // 4)
+
+    function XO(str) {
+        return str.replace(/o/ig, '').length == str.replace(/x/ig, '').length
+    }
+
+    // 5)
+
+    function XO(str) {
+        var sum = 0;
+        for(var i=0; i<str.length; i++){
+            if(str[i].toLowerCase() == 'x') sum++;
+            if(str[i].toLowerCase() == 'o') sum--;
+        }
+        return sum == 0;
+    }
+
+    // 6)
+
+    function XO(str) {
+        str = str.toLowerCase();
+        return (str.match(/o/g) || []).length === (str.match(/x/g) || []).length;
+    }
+
+</script>
+</body>
+</html>
