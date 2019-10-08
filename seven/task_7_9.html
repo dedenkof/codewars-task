@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_7_9</title>
+</head>
+<body>
+
+
+<script>
+    /*
+        Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+Note: for this kata y isn't considered a vowel.
+
+
+    */
+    //------------------------------------------
+
+    // My solve
+
+
+    const disemvowel = str => str.replace(/[aeiou]/gi, "");
+
+
+    disemvowel("This website is for losers LOL!");  // "Ths wbst s fr lsrs LL!")
+
+
+    //------------------------------------------
+    // 1) Best practice
+
+    function disemvowel(str) {
+        var vowels = ['a', 'e', 'i', 'o', 'u'];
+
+        return str.split('').filter(function(el) {
+            return vowels.indexOf(el.toLowerCase()) == -1;
+        }).join('');
+    }
+
+    // 2)
+
+    const disemvowel = (str) => {
+        const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+        let newStr = '';
+        for (let i = 0; i <= str.length; i++) {
+            let char = str.charAt(i);
+            if (vowels.indexOf(char) == -1) {
+                newStr += char;
+            }
+        }
+        return newStr;
+
+
+    };
+
+    // 3)
+
+    const vowels = 'aeiou';
+
+    function disemvowel(str) {
+        return str
+          .split('')
+          .filter(letter => !vowels.includes(letter.toLowerCase()))
+          .join('');
+    }
+
+    // 4)
+
+    function disemvowel(str) {
+        var arr1 = str.split('');
+        var answerArr = [];
+
+        for(var i=0; i<arr1.length; i++) {
+            switch (arr1[i].toLowerCase()) {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    break;
+                default:
+                    answerArr.push(arr1[i]);
+            }
+        }
+        return answerArr.join('');
+    }
+
+
+
+
+</script>
+</body>
+</html>
