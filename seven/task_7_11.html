@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task_7_11</title>
+</head>
+<body>
+
+
+<script>
+    /*
+        An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+        isIsogram("Dermatoglyphics") == true
+        isIsogram("aba") == false
+        isIsogram("moOse") == false // -- ignore letter case
+
+
+    */
+    //------------------------------------------
+
+    // My solve
+
+
+    function isIsogram(str){
+        return str
+          .toLowerCase()
+          .split('')
+          .filter(function(currentValue, index, arr) {
+              return arr.indexOf(currentValue) == index;
+          }).length == str.length;
+    }
+
+    isIsogram("Dermatoglyphics") // true );
+    isIsogram("isogram") // true );
+    isIsogram("aba") // false, "same chars may not be adjacent" );
+    isIsogram("moOse") // false, "same chars may not be same case" );
+    isIsogram("isIsogram") // false );
+    isIsogram(""), true // "an empty string is a valid isogram" );
+
+
+    //
+
+    const isIsogram = str => str.toLowerCase().split('').filter( (currentValue, index, arr) => arr.indexOf(currentValue) == index).length == str.length;
+
+
+
+
+    //------------------------------------------
+    // 1) Best practice
+
+    function isIsogram(str){
+        return new Set(str.toUpperCase()).size == str.length;
+    }
+
+    // 2)
+
+    function isIsogram(str){
+        var i, j;
+        str = str.toLowerCase();
+        for(i = 0; i < str.length; ++i)
+            for(j = i + 1; j < str.length; ++j)
+                if(str[i] === str[j])
+                    return false;
+        return true;
+    }
+
+    // 3)
+
+    function isIsogram(str){
+        return !str.match(/([a-z]).*\1/i);
+    }
+
+    // 4)
+
+    function isIsogram(str) {
+        return !str || str.toLowerCase().split('').every(function(v, i, arr) {return arr.indexOf(v) == i;});
+    }
+
+    // 5)
+
+    function isIsogram(word){
+        word = word.toLowerCase().split("").sort();
+        for (var i=0;i<word.length-1;i++){
+            if (word[i]==word[i+1]) return false;
+        }
+        return true;
+    }
+
+    // 6)
+
+    function isIsogram(str){
+        let value = true;
+        str.toLowerCase().split('').sort().map((letter, index, array) => {
+            if (letter === array[index + 1]) value = false;
+        });
+        return value;
+    }
+
+    // 7)
+
+    function isIsogram(str) {
+        return str.length == new Set(str.toLowerCase()).size;
+    }
+
+    // 8)
+
+    function isIsogram(str){
+        const letters = {};
+        if (str == str.toUpperCase()) return true;
+        for (let i = 0; i < str.length; i++) {
+            if (i > 0 && str[i] == str[i].toUpperCase()) return false;
+            if (str[i] in letters) return false;
+            else letters[str[i]] = 1;
+        }
+        return true;
+    }
+
+
+
+
+</script>
+</body>
+</html>
