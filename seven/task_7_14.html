@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>returns the sum of the two lowest positive numbers</title>
+</head>
+<body>
+
+
+<script>
+
+    /*
+        Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+[10, 343445353, 3453445, 3453545353453] should return 3453455.
+
+
+    */
+    //------------------------------------------
+
+
+    // My solve
+
+
+    function sumTwoSmallestNumbers(numbers) {
+
+        let numSort = numbers.sort((a, b) => a - b);
+
+        return numSort.slice(0, 2).reduce((a, b) => a + b);
+
+    }
+
+    console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])); //  "Sum should be 13"
+
+    // Best practice
+
+    // 1)
+
+    function sumTwoSmallestNumbers(numbers){
+        numbers = numbers.sort(function(a, b){return a - b; });
+        return numbers[0] + numbers[1];
+    };
+
+    // 2)
+
+    function sumTwoSmallestNumbers(numbers) {
+        var [ a, b ] = numbers.sort((a, b) => a - b)
+        return a + b
+    }
+
+    // 3)
+
+    const sumTwoSmallestNumbers = numbers => numbers.sort((x, y) => x - y).slice(0, 2).reduce((x, y) => x + y);
+
+
+
+
+</script>
+</body>
+</html>
